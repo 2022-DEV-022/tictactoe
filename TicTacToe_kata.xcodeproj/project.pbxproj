@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B58459427FB14D8008E3815 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58459327FB14D8008E3815 /* GameState.swift */; };
+		8B58459527FB14DC008E3815 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58459327FB14D8008E3815 /* GameState.swift */; };
+		8B58459827FB1542008E3815 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58459727FB1542008E3815 /* Constants.swift */; };
+		8B58459927FB1542008E3815 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58459727FB1542008E3815 /* Constants.swift */; };
 		8BC928CE27FADF8900C95661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC928CD27FADF8900C95661 /* AppDelegate.swift */; };
 		8BC928D227FADF8900C95661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC928D127FADF8900C95661 /* ViewController.swift */; };
 		8BC928D527FADF8900C95661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC928D327FADF8900C95661 /* Main.storyboard */; };
@@ -30,6 +34,8 @@
 /* Begin PBXFileReference section */
 		22AB0AF401ACB0A9E0DA5ADB /* Pods-TicTacToe_kata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToe_kata.release.xcconfig"; path = "Target Support Files/Pods-TicTacToe_kata/Pods-TicTacToe_kata.release.xcconfig"; sourceTree = "<group>"; };
 		6EB320305AD298A701AC6384 /* Pods_TicTacToe_kata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicTacToe_kata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B58459327FB14D8008E3815 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		8B58459727FB1542008E3815 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BC928CA27FADF8900C95661 /* TicTacToe_kata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe_kata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC928CD27FADF8900C95661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC928D127FADF8900C95661 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +90,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8B58459227FB14C6008E3815 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B58459327FB14D8008E3815 /* GameState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8B58459627FB1535008E3815 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8B58459727FB1542008E3815 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8BC928C127FADF8900C95661 = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +129,11 @@
 		8BC928CC27FADF8900C95661 /* TicTacToe_kata */ = {
 			isa = PBXGroup;
 			children = (
+				8B58459627FB1535008E3815 /* Utils */,
 				8BC928CD27FADF8900C95661 /* AppDelegate.swift */,
 				8BC928D127FADF8900C95661 /* ViewController.swift */,
 				8BC928D327FADF8900C95661 /* Main.storyboard */,
+				8B58459227FB14C6008E3815 /* Model */,
 				8B3F7C2127FAE4DC0022C884 /* Resources */,
 			);
 			path = TicTacToe_kata;
@@ -303,8 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B58459427FB14D8008E3815 /* GameState.swift in Sources */,
 				8BC928D227FADF8900C95661 /* ViewController.swift in Sources */,
 				8BC928CE27FADF8900C95661 /* AppDelegate.swift in Sources */,
+				8B58459827FB1542008E3815 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B58459527FB14DC008E3815 /* GameState.swift in Sources */,
 				8BC928E527FADF8A00C95661 /* TicTacToeKataTests.swift in Sources */,
+				8B58459927FB1542008E3815 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,28 +6,100 @@
 import XCTest
 @testable import TicTacToe_kata
 
-class TicTacToeKataTests: XCTestCase {
+class GameStateTests: XCTestCase {
+
+    var gameState: GameState!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        gameState = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetCases() throws {
+        gameState = GameState()
+        for i in 0..<9 {
+            XCTAssertTrue(gameState.getCase(at: i) == .empty)
         }
+    }
+
+    func testSetNewCase() throws {
+        gameState = GameState()
+        for i in 0..<9 {
+            let `case`: Case = (i%2 == 0 ? .cross : .circle)
+            gameState.setNewCase(at: i, case: `case`)
+            XCTAssertTrue(gameState.getCase(at: i) == `case`)
+        }
+    }
+
+    func testInProgressStatus() throws {
+        gameState = GameState()
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 9) == .progress)
+    }
+
+    func testDrawProgressStatus() throws {
+        gameState = GameState()
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 0) == .progress)
+    }
+
+    func testDiagonalWin() {
+        gameState = GameState(cases: [.cross, .circle, .empty,
+                                      .circle, .cross, .empty,
+                                      .empty, .empty, .cross])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+        gameState = GameState(cases: [.empty, .circle, .cross,
+                                      .empty, .cross, .empty,
+                                      .cross, .circle, .empty])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+    }
+
+    func testHorizontalWin() {
+        gameState = GameState(cases: [.cross, .cross, .cross,
+                                     .circle, .circle, .empty,
+                                     .empty, .empty, .empty])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+        gameState = GameState(cases: [.empty, .circle, .circle,
+                                      .cross, .cross, .cross,
+                                      .empty, .empty, .empty])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+        gameState = GameState(cases: [.circle, .circle, .empty,
+                                       .empty, .empty, .empty,
+                                       .cross, .cross, .cross])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+    }
+
+    func testVerticalWin() {
+        gameState = GameState(cases: [.cross, .circle, .empty,
+                                     .cross, .circle, .empty,
+                                     .cross, .empty, .empty])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+        gameState = GameState(cases: [.circle, .cross, .empty,
+                                      .circle, .cross, .empty,
+                                      .empty, .cross, .empty])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
+        gameState = GameState(cases: [.circle, .empty, .cross,
+                                       .circle, .empty, .cross,
+                                       .empty, .empty, .cross])
+
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .win)
+
     }
 }
