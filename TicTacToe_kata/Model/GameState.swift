@@ -40,6 +40,10 @@ struct GameState: GameStateProtocol {
 
      */
     mutating func setNewCase(at index: Int, case: Case) {
+        guard index >= 0 && index <= 8 else {
+            return
+        }
+        cases[index] = `case`
     }
 
     /**
@@ -49,7 +53,10 @@ struct GameState: GameStateProtocol {
      - returns: Returns nil if the index isn't between 0 and 8, otherwhise, returns the case
      */
     func getCase(at index: Int) -> Case? {
-        return nil
+        guard index >= 0 && index <= 8 else {
+            return nil
+        }
+        return cases[index]
     }
 
     /**
