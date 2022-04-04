@@ -15,6 +15,7 @@
 		8B58459D27FB2B02008E3815 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B58459C27FB2B02008E3815 /* BoardViewController.swift */; };
 		8B5845A327FB2B5D008E3815 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5845A227FB2B5D008E3815 /* BoardViewModel.swift */; };
 		8B5845A627FB2E9A008E3815 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5845A527FB2E9A008E3815 /* GameEngine.swift */; };
+		8B5845A827FB2FEE008E3815 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5845A727FB2FEE008E3815 /* GameEngineTests.swift */; };
 		8BC928CE27FADF8900C95661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC928CD27FADF8900C95661 /* AppDelegate.swift */; };
 		8BC928D727FADF8A00C95661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC928D627FADF8A00C95661 /* Assets.xcassets */; };
 		8BC928DA27FADF8A00C95661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC928D827FADF8A00C95661 /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 		8B58459C27FB2B02008E3815 /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		8B5845A227FB2B5D008E3815 /* BoardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		8B5845A527FB2E9A008E3815 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		8B5845A727FB2FEE008E3815 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 		8BC928CA27FADF8900C95661 /* TicTacToe_kata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe_kata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC928CD27FADF8900C95661 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC928D627FADF8A00C95661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8BC928E427FADF8A00C95661 /* GameStateTests.swift */,
+				8B5845A727FB2FEE008E3815 /* GameEngineTests.swift */,
 			);
 			path = TicTacToe_kataTests;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				8B58459527FB14DC008E3815 /* GameState.swift in Sources */,
 				8BC928E527FADF8A00C95661 /* GameStateTests.swift in Sources */,
 				8B58459927FB1542008E3815 /* Constants.swift in Sources */,
+				8B5845A827FB2FEE008E3815 /* GameEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

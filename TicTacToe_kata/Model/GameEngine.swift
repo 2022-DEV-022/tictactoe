@@ -2,7 +2,6 @@
 //  GameEngine.swift
 //  TicTacToe_kata
 //
-//
 
 import Foundation
 
@@ -36,7 +35,7 @@ struct GameEngine: BoardEngine {
         self.gameState = gameState
     }
 
-    mutating func setCaseAt(_ index: Int) -> Case? {
+    @discardableResult mutating func setCaseAt(_ index: Int) -> Case? {
         return nil
     }
 

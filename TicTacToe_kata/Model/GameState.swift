@@ -20,7 +20,7 @@ enum GameStatus {
 protocol GameStateProtocol {
     mutating func setNewCase(at index: Int, case: Case)
 
-    func getCase(at index: Int) -> Case?
+    func getCaseAt(_ index: Int) -> Case?
     func gameStatus(movesLeft: Int) -> GameStatus
 }
 
@@ -52,7 +52,7 @@ struct GameState: GameStateProtocol {
      - Parameter index: The index relative to the case
      - returns: Returns nil if the index isn't between 0 and 8, otherwhise, returns the case
      */
-    func getCase(at index: Int) -> Case? {
+    func getCaseAt(_ index: Int) -> Case? {
         guard index >= 0 && index <= 8 else {
             return nil
         }
