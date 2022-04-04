@@ -28,7 +28,8 @@ struct GameEngine: BoardEngine {
      - returns: a String that represents the name of the winner
      */
     var winnerName: String {
-        return ""
+        // in real world it would be a localized string or even better, the "true" player's name.
+        return currentPlayer.rawValue
     }
 
     init(_ gameState: GameStateProtocol = GameState()) {
@@ -36,7 +37,23 @@ struct GameEngine: BoardEngine {
     }
 
     @discardableResult mutating func setCaseAt(_ index: Int) -> Case? {
-        return nil
+        guard index >= 0 && index <= 8
+                && allowedMoves > 0
+                && gameStatus == .progress else {
+                    return nil
+                }
+
+        guard let `case` = gameState.getCaseAt(index), `case` == .empty else {
+            return nil
+        }
+
+        let nextCase = getNextCase()
+
+        gameState.setNewCase(at: index, case: nextCase)
+        allowedMoves -= 1
+        gameStatus = gameState.gameStatus(movesLeft: allowedMoves)
+        switchPlayer()
+        return nextCase
     }
 
     mutating func resetGame() {
@@ -51,10 +68,22 @@ struct GameEngine: BoardEngine {
      If this is the first move, the player will be automatically a cross, then the player will switch to the opposite.
      */
     mutating func switchPlayer() {
+        switch currentPlayer {
+        case .empty, .circle:
+            currentPlayer = .cross
+        case .cross:
+            currentPlayer = .circle
+        }
     }
 
     // MARK: Convenients
     private func getNextCase() -> Case {
-        return .empty
+        switch currentPlayer {
+        case .empty, .circle:
+            // first move
+            return .cross
+        default:
+            return .circle
+        }
     }
 }

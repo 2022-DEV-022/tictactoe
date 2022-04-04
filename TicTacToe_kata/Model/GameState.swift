@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum Case {
+enum Case: String {
     case empty
     case cross
     case circle

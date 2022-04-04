@@ -51,6 +51,8 @@ class GameStateTests: XCTestCase {
     func testInProgressStatus() throws {
         gameState = GameState()
         XCTAssertTrue(gameState.gameStatus(movesLeft: 9) == .progress)
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .progress)
+
     }
 
     func testDrawProgressStatus() throws {
