@@ -43,7 +43,7 @@ class GameStateTests: XCTestCase {
     func testSetNewCaseWrongIndew() throws {
         gameState = GameState()
         for i in 0..<9 {
-            //every index used to set the new case are wrong so the array of cases should be intact (.empty everywhere)
+            // every index used to set the new case are wrong so the array of cases should be intact (.empty everywhere)
             gameState.setNewCase(at: (i+9), case: .circle)
             XCTAssertTrue(gameState.getCase(at: i) == .empty)
         }
@@ -56,7 +56,7 @@ class GameStateTests: XCTestCase {
 
     func testDrawProgressStatus() throws {
         gameState = GameState()
-        XCTAssertTrue(gameState.gameStatus(movesLeft: 0) == .progress)
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 0) == .draw)
     }
 
     func testDiagonalWin() {
