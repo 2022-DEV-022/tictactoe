@@ -23,7 +23,6 @@ final class BoardViewModel {
         guard let newCase = gameEngine.setCaseAt(index) else {
             return
         }
-        gameEngine.switchPlayer()
 
         delegate?.setImage(at: index, image: newCase.rawValue)
         checkGameState()
@@ -39,12 +38,11 @@ final class BoardViewModel {
      */
     private func checkGameState() {
 
-        // in real world this should be a localized string and not a magic string
         switch gameEngine.gameStatus {
         case .draw:
             delegate?.gameFinished(text: "draw")
         case .win:
-            let text = gameEngine.winnerName + "has win"
+            let text = gameEngine.winnerName.localized + "win".localized
             delegate?.gameFinished(text: text)
         default:
             // game in progress

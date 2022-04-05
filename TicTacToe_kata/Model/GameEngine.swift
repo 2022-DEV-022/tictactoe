@@ -28,7 +28,6 @@ struct GameEngine: BoardEngine {
      - returns: a String that represents the name of the winner
      */
     var winnerName: String {
-        // in real world it would be a localized string or even better, the "true" player's name.
         return currentPlayer.rawValue
     }
 
