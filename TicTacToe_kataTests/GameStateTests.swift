@@ -8,11 +8,10 @@ import XCTest
 
 class GameStateTests: XCTestCase {
 
-    var gameState: GameState!
+    var gameState: GameStateProtocol!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-
     }
 
     override func tearDownWithError() throws {
@@ -23,12 +22,12 @@ class GameStateTests: XCTestCase {
     func testGetCases() throws {
         gameState = GameState()
         for i in 0..<9 {
-            XCTAssertTrue(gameState.getCase(at: i) == .empty)
+            XCTAssertTrue(gameState.getCaseAt(i) == .empty)
         }
 
         // invalid index
-        XCTAssertTrue(gameState.getCase(at: -1) == nil)
-        XCTAssertTrue(gameState.getCase(at: 9) == nil)
+        XCTAssertTrue(gameState.getCaseAt(-1) == nil)
+        XCTAssertTrue(gameState.getCaseAt(9) == nil)
     }
 
     func testSetNewCase() throws {
@@ -36,7 +35,7 @@ class GameStateTests: XCTestCase {
         for i in 0..<9 {
             let `case`: Case = (i%2 == 0 ? .cross : .circle)
             gameState.setNewCase(at: i, case: `case`)
-            XCTAssertTrue(gameState.getCase(at: i) == `case`)
+            XCTAssertTrue(gameState.getCaseAt(i) == `case`)
         }
     }
 
@@ -45,13 +44,15 @@ class GameStateTests: XCTestCase {
         for i in 0..<9 {
             // every index used to set the new case are wrong so the array of cases should be intact (.empty everywhere)
             gameState.setNewCase(at: (i+9), case: .circle)
-            XCTAssertTrue(gameState.getCase(at: i) == .empty)
+            XCTAssertTrue(gameState.getCaseAt(i) == .empty)
         }
     }
 
     func testInProgressStatus() throws {
         gameState = GameState()
         XCTAssertTrue(gameState.gameStatus(movesLeft: 9) == .progress)
+        XCTAssertTrue(gameState.gameStatus(movesLeft: 4) == .progress)
+
     }
 
     func testDrawProgressStatus() throws {
